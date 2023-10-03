@@ -43,11 +43,11 @@ public class plant : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void onTriggerEnter2D(Collision2D collision) {
+    void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("something hitting plant (help me :vvv)");
         // Check for a match with the specific tag on any GameObject that 
         // collides with your GameObject
-        if (collision.gameObject.tag == "fish_col_tester") {
+        if (collision.tag == "bird") {
             Debug.Log("DESTROYED YOUR PLANT!!");
             plant_stage--;
         }
