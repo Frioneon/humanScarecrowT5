@@ -6,9 +6,13 @@
 
 
     public class PlayerMove : MonoBehaviour {
-        private Camera cam;
+        Camera cam;
         public Sprite[] spriteList;
+        public Sprite[] attackList;
         SpriteRenderer spriteRenderer; 
+        public int coolMax = 50;
+        int cool = 0;
+        int spriteDex;
 
         void Start () {
             spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -16,24 +20,37 @@
 
         void Update() {
             if (Input.GetKey("up")||Input.GetKey("w")) {
-                spriteRenderer.sprite = spriteList[3];
-                GetComponent<BoxCollider2D>().size = new Vector2(1f, 3f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0f, 1f);
+                spriteDex = 3;
+                GetComponent<BoxCollider2D>().size = new Vector2(1f, 1.5f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(0f, 1.5f);
             }
             if (Input.GetKey("down")||Input.GetKey("s")) {
-                spriteRenderer.sprite = spriteList[0];
-                GetComponent<BoxCollider2D>().size = new Vector2(1f, 3f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0f, -1f);
+                spriteDex = 0;
+                GetComponent<BoxCollider2D>().size = new Vector2(1f, 1.5f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(0f, -1.5f);
             }
             if (Input.GetKey("right")||Input.GetKey("d")) {
-                spriteRenderer.sprite = spriteList[2];
-                GetComponent<BoxCollider2D>().size = new Vector2(3f, 1f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(1f, 0f);
+                spriteDex = 2;
+                GetComponent<BoxCollider2D>().size = new Vector2(1.5f, 1f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(1.5f, 0f);
             }
             if (Input.GetKey("left")||Input.GetKey("a")) {
-                spriteRenderer.sprite = spriteList[1];
-                GetComponent<BoxCollider2D>().size = new Vector2(3f, 1f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(-1f, 0f);
+                spriteDex = 1;
+                GetComponent<BoxCollider2D>().size = new Vector2(1.5f, 1f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(-1.5f, 0f);
+            }
+            if (cool == 0) {
+                spriteRenderer.sprite = spriteList[spriteDex];
+            } else {
+                spriteRenderer.sprite = attackList[spriteDex];
+                cool--;
+            }
+        }
+
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (col.tag == "Untagged") {
+                cool = coolMax;
             }
         }
 

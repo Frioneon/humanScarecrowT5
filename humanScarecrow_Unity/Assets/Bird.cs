@@ -11,6 +11,9 @@ public class Bird : MonoBehaviour
     bool flap = false;
     bool scared = false;
     int flaptime = 0;
+    public AudioClip caw;
+    public AudioClip laugh;
+    AudioSource audioSource;
     
 
     // Start is called before the first frame update
@@ -18,6 +21,7 @@ public class Bird : MonoBehaviour
     {
         transform.position += velocity;
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,8 +43,27 @@ public class Bird : MonoBehaviour
         transform.position += velocity;
         flaptime++;
         Render();
-        //when it collides with plant or scare, get scared and fly at a 45 degree difference
         //when it gets to 0,0 game over
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.tag == "Scarecrow") {
+            if (flap) {
+                velocity = new Vector3(-2f*velocity.x + 0.3f*2f*velocity.y, -0.3f*2f*velocity.x - 2f*velocity.y);
+            } else {
+                velocity = new Vector3(-2f*velocity.x - 0.3f*2f*velocity.y, 0.3f*2f*velocity.x - 2f*velocity.y);
+            }
+            audioSource.PlayOneShot(caw, 0.4F);
+        }
+        else if (col.tag == "Plant") {
+            if (flap) {
+                velocity = new Vector3(-velocity.x + 0.3f*velocity.y, -0.3f*velocity.x - velocity.y);
+            } else {
+                velocity = new Vector3(-velocity.x - 0.3f*velocity.y, 0.3f*velocity.x - velocity.y);
+            }
+            audioSource.PlayOneShot(laugh, 0.7F);
+        }
     }
 
     void Render()
