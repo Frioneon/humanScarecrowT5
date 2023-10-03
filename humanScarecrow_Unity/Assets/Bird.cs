@@ -27,7 +27,7 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (( transform.position.x >  10 ) || ( transform.position.x < -10 ) || ( transform.position.y >  10 ) || ( transform.position.y < -10 ))
+        if (( transform.position.x >  20 ) || ( transform.position.x < -20 ) || ( transform.position.y >  10 ) || ( transform.position.y < -10 ))
         {
             Destroy(this.gameObject);
         }
@@ -43,7 +43,6 @@ public class Bird : MonoBehaviour
         transform.position += velocity;
         flaptime++;
         Render();
-        //when it gets to 0,0 game over
     }
 
     private void OnTriggerEnter2D(Collider2D col)
