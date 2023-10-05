@@ -39,21 +39,21 @@
         }
 
         void OnMouseDown() {
-            Debug.Log("Clicked on object!");
+            //Debug.Log("Clicked on object!");
         }
 
         void Update() {
             if (Input.GetMouseButtonDown(0)) {
-                //Vector2 mousePos = Input.mousePosition;
+                Vector2 mousePos = Input.mousePosition;
                 //Vector3 point = new Vector3();
                 //Vector3 vector = new Vector3(move.position.x, move.position.y, move.position.z);
                 //playerPos.position = vector;
                 
-                print("mouse");
+                //print("mouse");
                 //player.position = plant.position;
 
-                // print(mousePos.x);
-                // print(mousePos.y);
+                print(mousePos.x);
+                print(mousePos.y);
                 // print(vector.x + "mouse");
                 // print(vector.y + "mouse");
 
@@ -63,22 +63,22 @@
 
             if (Input.GetKey("up")) {
                 spriteRenderer.sprite = spriteList[3];
-                print("hello world");
+                //print("hello world");
                 // Down.setActive(false);
             }
             if (Input.GetKey("down")) {
                 spriteRenderer.sprite = spriteList[0];
-                print("hello world");
+                //print("hello world");
                 // Down.setActive(false);
             }
             if (Input.GetKey("right")) {
                 spriteRenderer.sprite = spriteList[2];
-                print("hello world");
+                //print("hello world");
                 // Down.setActive(false);
             }
             if (Input.GetKey("left")) {
                 spriteRenderer.sprite = spriteList[1];
-                print("hello world");
+                //print("hello world");
                 // Down.setActive(false);
             }
 

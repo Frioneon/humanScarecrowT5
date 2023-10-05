@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Collider : MonoBehaviour
 {
-    public GameObject player;
+    public Transform player;
+    public Transform collider;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,14 +14,15 @@ public class Collider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
     }
 
      void OnMouseDown() {
 
         Debug.Log("Clicked on object!");
         Debug.Log("hello:" + player);
-        player.transform.position = transform.position;
+        player.position = transform.position;
 
     }
 }
