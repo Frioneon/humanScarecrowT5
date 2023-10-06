@@ -21,23 +21,23 @@
         void Update() {
             if (Input.GetKey("up")||Input.GetKey("w")) {
                 spriteDex = 3;
-                GetComponent<BoxCollider2D>().size = new Vector2(1f, 1.5f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0f, 1.5f);
+                GetComponent<BoxCollider2D>().size = new Vector2(1f, 2f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(0f, 2f);
             }
             if (Input.GetKey("down")||Input.GetKey("s")) {
                 spriteDex = 0;
-                GetComponent<BoxCollider2D>().size = new Vector2(1f, 1.5f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(0f, -1.5f);
+                GetComponent<BoxCollider2D>().size = new Vector2(1f, 2f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(0f, -2f);
             }
             if (Input.GetKey("right")||Input.GetKey("d")) {
                 spriteDex = 2;
-                GetComponent<BoxCollider2D>().size = new Vector2(1.5f, 1f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(1.5f, 0f);
+                GetComponent<BoxCollider2D>().size = new Vector2(2f, 1f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(2f, 0f);
             }
             if (Input.GetKey("left")||Input.GetKey("a")) {
                 spriteDex = 1;
-                GetComponent<BoxCollider2D>().size = new Vector2(1.5f, 1f);
-                GetComponent<BoxCollider2D>().offset = new Vector2(-1.5f, 0f);
+                GetComponent<BoxCollider2D>().size = new Vector2(2f, 1f);
+                GetComponent<BoxCollider2D>().offset = new Vector2(-2f, 0f);
             }
             if (cool == 0) {
                 spriteRenderer.sprite = spriteList[spriteDex];
