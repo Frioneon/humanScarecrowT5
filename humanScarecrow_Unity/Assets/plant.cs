@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class plant : MonoBehaviour
 {   
-    public int plant_stage = 3;
+    int plant_stage = 0;
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteList;
     // Start is called before the first frame update
@@ -12,6 +12,7 @@ public class plant : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteList[plant_stage];
+        InvokeRepeating("PlantGrow", 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -22,13 +23,21 @@ public class plant : MonoBehaviour
         //     ChangeSprite();
         // }
 
-        ChangeSprite();
+        DestroySprite();
         
     }
 
-    void ChangeSprite()
+    void PlantGrow() {
+        Debug.Log("I'm growingg~");
+        if (plant_stage < 3) {
+            plant_stage++;
+            spriteRenderer.sprite = spriteList[plant_stage];
+        }
+    }
+
+    void DestroySprite()
     {   
-        if (plant_stage == 0) {
+        if (plant_stage < 0) {
             Debug.Log("Destroyyy muahhahah");
             DestroyGameObject();
         } else { 
@@ -47,7 +56,7 @@ public class plant : MonoBehaviour
         Debug.Log("something hitting plant (help me :vvv)");
         // Check for a match with the specific tag on any GameObject that 
         // collides with your GameObject
-        if (collision.tag == "bird") {
+        if (collision.tag == "fish_col_tester") {
             Debug.Log("DESTROYED YOUR PLANT!!");
             plant_stage--;
         }
