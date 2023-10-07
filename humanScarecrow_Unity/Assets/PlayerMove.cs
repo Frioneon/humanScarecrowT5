@@ -25,7 +25,7 @@
             plant1 = GetComponent<Rigidbody2D>();
             plant2 = GetComponent<Rigidbody2D>();
             plant3 = GetComponent<Rigidbody2D>();
-            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
             //down.setActive(true);
             // player.Right.setActive(false);
             // player.Left.setActive(false);

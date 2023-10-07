@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2998158827610510638
 BoxCollider2D:
@@ -87,7 +87,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3890044782728036305}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d33d016ec0fd4c829653b42f5f47ee0, type: 3}
+  m_Script: {fileID: 11500000, guid: 62ac8de1919ef4832a8ae7d3bcfc9d1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  collider: {fileID: 0}

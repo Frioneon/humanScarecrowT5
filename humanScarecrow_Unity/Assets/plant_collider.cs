@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collider : MonoBehaviour
+public class plant_collider : MonoBehaviour
 {
-    public Transform player;
-    public Transform collider;
+    private Transform player;
+    //public Transform collider;
     // Start is called before the first frame update
+    
     void Start()
     {
+        player = GameObject.FindWithTag("Scarecrow").GetComponent<Transform>();
+
     }
 
     // Update is called once per frame
