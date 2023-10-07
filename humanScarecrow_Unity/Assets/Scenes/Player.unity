@@ -299,7 +299,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7146333192234464005, guid: 4357bc0c8be3745f8a0c0d2ddaa4ea8b, type: 3}
       propertyPath: m_Name
-      value: Plant
+      value: Plant1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 0}
   playerPos: {fileID: 0}
-  player: {fileID: 1546328267}
+  player: {fileID: 0}
   plant: {fileID: 0}
   plant1: {fileID: 0}
   plant2: {fileID: 0}
@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 1546328263}
     - target: {fileID: 3890044782728036305, guid: 8a346d8072dde4852bef2cfe2593f432, type: 3}
       propertyPath: m_Name
-      value: Collider
+      value: Collider1
       objectReference: {fileID: 0}
     - target: {fileID: 6515489147945102115, guid: 8a346d8072dde4852bef2cfe2593f432, type: 3}
       propertyPath: m_RootOrder
