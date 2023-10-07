@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4716960254702944902}
   - component: {fileID: 7180052952636229133}
   - component: {fileID: 1506335415570712423}
-  - component: {fileID: 7737479943302037354}
   - component: {fileID: 3848190945246429864}
   - component: {fileID: -22314183728627946}
+  - component: {fileID: 7737479943302037354}
   - component: {fileID: 4977103315432870935}
   m_Layer: 0
   m_Name: Bird
@@ -134,30 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &7737479943302037354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4450239837362312063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1beb7d939e3683148bc4b3d5f9320ef2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocity: {x: 0, y: 1, z: 0}
-  spriteArray:
-  - {fileID: 21300000, guid: 269700df00e76f34aa5674d758ceb67c, type: 3}
-  - {fileID: 21300000, guid: 269700df00e76f34aa5674d758ceb67c, type: 3}
-  - {fileID: 21300000, guid: 02a169e2a22ea094e9dc4e10d5b7c948, type: 3}
-  - {fileID: 21300000, guid: 02a169e2a22ea094e9dc4e10d5b7c948, type: 3}
-  - {fileID: 21300000, guid: eb464687482f6334eaaf01443a6cc88c, type: 3}
-  - {fileID: 21300000, guid: f0f7cea0165a17449a56a6a3e462ffe7, type: 3}
-  - {fileID: 21300000, guid: 3a57ab33581ef994c8998886f454da54, type: 3}
-  - {fileID: 21300000, guid: d5318ccfa0a0eab47a8bbd4236bf4764, type: 3}
-  caw: {fileID: 8300000, guid: b428b6c60e2f75a4bbcb507de2545ebc, type: 3}
-  laugh: {fileID: 8300000, guid: 315ce4f0951599441943d340a07c124c, type: 3}
 --- !u!61 &3848190945246429864
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -230,6 +206,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &7737479943302037354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4450239837362312063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1beb7d939e3683148bc4b3d5f9320ef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 1, z: 0}
+  spriteArray:
+  - {fileID: 21300000, guid: 269700df00e76f34aa5674d758ceb67c, type: 3}
+  - {fileID: 21300000, guid: 269700df00e76f34aa5674d758ceb67c, type: 3}
+  - {fileID: 21300000, guid: 02a169e2a22ea094e9dc4e10d5b7c948, type: 3}
+  - {fileID: 21300000, guid: 02a169e2a22ea094e9dc4e10d5b7c948, type: 3}
+  - {fileID: 21300000, guid: eb464687482f6334eaaf01443a6cc88c, type: 3}
+  - {fileID: 21300000, guid: f0f7cea0165a17449a56a6a3e462ffe7, type: 3}
+  - {fileID: 21300000, guid: 3a57ab33581ef994c8998886f454da54, type: 3}
+  - {fileID: 21300000, guid: d5318ccfa0a0eab47a8bbd4236bf4764, type: 3}
+  caw: {fileID: 8300000, guid: b428b6c60e2f75a4bbcb507de2545ebc, type: 3}
+  laugh: {fileID: 8300000, guid: 315ce4f0951599441943d340a07c124c, type: 3}
 --- !u!82 &4977103315432870935
 AudioSource:
   m_ObjectHideFlags: 0

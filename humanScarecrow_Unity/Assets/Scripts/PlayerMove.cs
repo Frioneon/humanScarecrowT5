@@ -15,7 +15,7 @@
         int spriteDex;
 
         void Start () {
-            spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+            spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
         }
 
         void Update() {
