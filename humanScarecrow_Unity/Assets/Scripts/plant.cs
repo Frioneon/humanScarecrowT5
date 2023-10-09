@@ -7,6 +7,9 @@ public class plant : MonoBehaviour
     int plant_stage = 0;
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteList;
+
+    Vector3 mousePos;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +21,32 @@ public class plant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if(Input.GetMouseButtonDown(0))
-        // {
-        //     ChangeSprite();
-        // }
 
         DestroySprite();
+
+        if (Input.GetMouseButtonDown(1)) {
+
+            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0;
+
+            Debug.Log(mousePos);
+
+            // We can also limit where the player can plant with this
+            if (this.name == "plant") {
+                clonePlant();
+            }
+            
+        }
         
+    }
+
+    void clonePlant() {
+        // Clone a new plant
+        plant new_plant = Instantiate(this);
+
+        Transform plant_pos = new_plant.transform;
+        plant_pos.position = plant_pos.position + mousePos;
+
     }
 
     void PlantGrow() {
@@ -54,6 +76,7 @@ public class plant : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) {
         Debug.Log("something hitting plant (help me :vvv)");
+        
         // Check for a match with the specific tag on any GameObject that 
         // collides with your GameObject
         if (collision.tag == "fish_col_tester") {
