@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Scarecrow
   - Plant
-  - down
+  - Bird
+  - Time
+  - Tree
   layers:
   - Default
   - TransparentFX

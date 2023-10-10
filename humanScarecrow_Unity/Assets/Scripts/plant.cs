@@ -7,15 +7,17 @@ public class plant : MonoBehaviour
     int plant_stage = 0;
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteList;
+    public int healCoolMax = 4;
+    int healCool = 4;
 
-    Vector3 mousePos;
+    //Vector3 mousePos;
     
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteList[plant_stage];
-        InvokeRepeating("PlantGrow", 2.0f, 2.0f);
+        //InvokeRepeating("PlantGrow", 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class plant : MonoBehaviour
 
         DestroySprite();
 
-        if (Input.GetMouseButtonDown(1)) {
+        /*if (Input.GetMouseButtonDown(1)) {
 
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
@@ -36,22 +38,21 @@ public class plant : MonoBehaviour
                 clonePlant();
             }
             
-        }
+        }*/
         
     }
 
-    void clonePlant() {
+    /*void clonePlant() {
         // Clone a new plant
         plant new_plant = Instantiate(this);
 
         Transform plant_pos = new_plant.transform;
         plant_pos.position = plant_pos.position + mousePos;
 
-    }
+    }*/
 
     void PlantGrow() {
-        Debug.Log("I'm growingg~");
-        if (plant_stage < 3) {
+        if (plant_stage < 2) {
             plant_stage++;
             spriteRenderer.sprite = spriteList[plant_stage];
         }
@@ -60,28 +61,25 @@ public class plant : MonoBehaviour
     void DestroySprite()
     {   
         if (plant_stage < 0) {
-            Debug.Log("Destroyyy muahhahah");
-            DestroyGameObject();
+            Destroy(gameObject);
         } else { 
-            Debug.Log("plant stage .-." + plant_stage);
             spriteRenderer.sprite = spriteList[plant_stage]; 
         }
         
     }
 
-    void DestroyGameObject()
-    {
-        Destroy(gameObject);
+    void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.tag == "Bird") {
+            plant_stage--;
+        }
     }
 
-    void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("something hitting plant (help me :vvv)");
-        
-        // Check for a match with the specific tag on any GameObject that 
-        // collides with your GameObject
-        if (collision.tag == "fish_col_tester") {
-            Debug.Log("DESTROYED YOUR PLANT!!");
-            plant_stage--;
+    public void TimeStep() {
+        if (healCool > 0) {
+            healCool--;
+        } else {
+            healCool = healCoolMax;
+            PlantGrow();
         }
     }
 }
