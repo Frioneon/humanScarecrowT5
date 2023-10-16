@@ -10,14 +10,14 @@ public class plant : MonoBehaviour
     public int healCoolMax = 4;
     int healCool = 4;
 
-    //Vector3 mousePos;
+    Vector3 mousePos;
     
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteList[plant_stage];
-        //InvokeRepeating("PlantGrow", 2.0f, 2.0f);
+        InvokeRepeating("PlantGrow", 2.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class plant : MonoBehaviour
 
         DestroySprite();
 
-        /*if (Input.GetMouseButtonDown(1)) {
+        if (Input.GetMouseButtonDown(1)) {
 
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
@@ -38,18 +38,18 @@ public class plant : MonoBehaviour
                 clonePlant();
             }
             
-        }*/
+        }
         
     }
 
-    /*void clonePlant() {
+    void clonePlant() {
         // Clone a new plant
         plant new_plant = Instantiate(this);
 
         Transform plant_pos = new_plant.transform;
         plant_pos.position = plant_pos.position + mousePos;
 
-    }*/
+    }
 
     void PlantGrow() {
         if (plant_stage < 2) {
@@ -83,3 +83,4 @@ public class plant : MonoBehaviour
         }
     }
 }
+
