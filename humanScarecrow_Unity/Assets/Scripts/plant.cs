@@ -9,6 +9,7 @@ public class plant : MonoBehaviour
     public Sprite[] spriteList;
     public int healCoolMax = 4;
     int healCool = 4;
+    public Transform parent;
 
     Vector3 mousePos;
     
@@ -26,28 +27,35 @@ public class plant : MonoBehaviour
 
         DestroySprite();
 
-        if (Input.GetMouseButtonDown(1)) {
+        // if (Input.GetMouseButtonDown(1)) {
 
-            mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0;
+        //     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //     mousePos.z = 0;
 
-            Debug.Log(mousePos);
+        //     Debug.Log(mousePos);
 
-            // We can also limit where the player can plant with this
-            if (this.name == "plant") {
-                clonePlant();
-            }
+        //     // We can also limit where the player can plant with this
+        //     if (this.name == "plant") {
+        //         clonePlant();
+        //     }
             
-        }
+        // }
         
     }
 
-    void clonePlant() {
+    public void clonePlant(Transform new_t) {
         // Clone a new plant
-        plant new_plant = Instantiate(this);
+        plant new_plant = Instantiate(this, parent);
+
+        // Transform plant_pos = new_plant.transform;
+        // plant_pos.position = plant_pos.position + mousePos;
+        // mousePos.x = horizontalInput;
+        // mousePos.y = verticalInput;
+        // mousePos.z = 0;
+        // Debug.Log(horizontalInput);
 
         Transform plant_pos = new_plant.transform;
-        plant_pos.position = plant_pos.position + mousePos;
+        plant_pos.position = new_t.position;
 
     }
 
