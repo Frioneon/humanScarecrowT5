@@ -34,6 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu(){
         Time.timeScale = 1f;
+        Debug.Log("main menu");
         SceneManager.LoadScene("Menu");
     }
 
@@ -43,6 +44,6 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("work_Isabella");
+        SceneManager.LoadScene("Level1_building");
     }
 }
