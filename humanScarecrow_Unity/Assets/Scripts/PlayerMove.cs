@@ -13,15 +13,12 @@
         public int coolMax = 50;
         int cool = 0;
         int spriteDex;
-        public Controller controller;
-        int lastDex;
 
         void Start () {
             spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
         }
 
         void Update() {
-            lastDex = spriteDex;
             if (Input.GetKey("up")||Input.GetKey("w")) {
                 spriteDex = 3;
                 GetComponent<BoxCollider2D>().size = new Vector2(1f, 2f);
@@ -47,9 +44,6 @@
             } else {
                 spriteRenderer.sprite = attackList[spriteDex];
                 cool--;
-            }
-            if (lastDex != spriteDex) {
-                controller.itsTime = true;
             }
         }
 

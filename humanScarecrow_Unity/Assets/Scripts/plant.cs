@@ -82,13 +82,13 @@ public class plant : MonoBehaviour
         }
     }
 
-    public void TimeStep() {
+    /*public void TimeStep() {
         if (healCool > 0) {
             healCool--;
         } else {
             healCool = healCoolMax;
             PlantGrow();
         }
-    }
+    }*/
 }
 

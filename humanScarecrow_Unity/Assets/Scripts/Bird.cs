@@ -12,7 +12,6 @@ public class Bird : MonoBehaviour
     bool scared = false;
     public AudioClip caw;
     public AudioClip laugh;
-    public AudioClip bonk;
     AudioSource audioSource;
     
 
@@ -27,7 +26,7 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (( transform.position.x >  7 ) || ( transform.position.x < -7 ) || ( transform.position.y >  4 ) || ( transform.position.y < -4 ))
+        if (( transform.position.x >  20 ) || ( transform.position.x < -20 ) || ( transform.position.y >  20 ) || ( transform.position.y < -20 ))
         {
             Destroy(this.gameObject);
             if (!scared) {
@@ -36,42 +35,22 @@ public class Bird : MonoBehaviour
         }
         if (scared)
         {
-            transform.position += velocity;
-            transform.position += velocity;
-            transform.position += velocity;
+            transform.localScale *= 1.006f;
             flap = !flap;
         }
         Render();
+        transform.position += velocity;
+        flap = !flap;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Scarecrow") {
-            if (flap) {
-                velocity = new Vector3(-0.4f*velocity.x - 0.12f*velocity.y, 0.12f*velocity.x + 0.4f*velocity.y);
-            } else {
-                velocity = new Vector3(-0.4f*velocity.x + 0.12f*velocity.y, -0.12f*velocity.x + 0.4f*velocity.y);
-            }
+            float random = UnityEngine.Random.Range(0f, 260f);
+            velocity = new Vector3(0.03f*Mathf.Cos(random), 0.03f*Mathf.Sin(random));
             scared = true;
             audioSource.PlayOneShot(caw, 0.4F);
         }
-        else if (col.tag == "Bird") {
-            if (flap) {
-                velocity = new Vector3(-0.4f*velocity.x - 0.12f*velocity.y, 0.12f*velocity.x + 0.4f*velocity.y);
-            } else {
-                velocity = new Vector3(-0.4f*velocity.x + 0.12f*velocity.y, -0.12f*velocity.x + 0.4f*velocity.y);
-            }
-            scared = true;
-            audioSource.PlayOneShot(bonk, 0.4F);
-        }
-        else if (col.tag == "Time") {
-            TimeStep();
-        }
-    }
-
-    public void TimeStep() {
-        transform.position += velocity;
-        flap = !flap;
     }
 
     void Render()
