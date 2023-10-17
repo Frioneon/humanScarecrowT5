@@ -184,7 +184,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5318ccfa0a0eab47a8bbd4236bf4764, type: 3}
   caw: {fileID: 8300000, guid: b428b6c60e2f75a4bbcb507de2545ebc, type: 3}
   laugh: {fileID: 8300000, guid: 315ce4f0951599441943d340a07c124c, type: 3}
-  bonk: {fileID: 0}
+  pauseMenuUI: {fileID: 6031254804333681086, guid: 01f5a35732bb74dab9ac177ce8842309, type: 3}
 --- !u!82 &4977103315432870935
 AudioSource:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     public float waitRate;
     public float speedRateRate;
     public float waitRateRate;
+    public GameObject pauseMenuUI;
     public Vector3 direction;
     System.Random random = new System.Random();
     public int time = 0;
@@ -31,18 +32,20 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (time <= 0) {
-            minWait*=waitRate*waitRateRate;
-            maxWait*=waitRate;
-            time = random.Next(Convert.ToInt32(minWait), Convert.ToInt32(maxWait));
-            bird = Instantiate(birdPrefab);
-            speed = random.Next(Convert.ToInt32(minSpeed), Convert.ToInt32(maxSpeed));
-            minSpeed*=speedRate;
-            maxSpeed*=speedRate*speedRateRate;
-            bird.velocity = new Vector3(direction.x*speed/100f, direction.y*speed/100f);
-            bird.gameObject.transform.position = transform.position;
+        if (pauseMenuUI.activeInHierarchy == false) {
+            if (time <= 0) {
+                minWait*=waitRate*waitRateRate;
+                maxWait*=waitRate;
+                time = random.Next(Convert.ToInt32(minWait), Convert.ToInt32(maxWait));
+                bird = Instantiate(birdPrefab);
+                speed = random.Next(Convert.ToInt32(minSpeed), Convert.ToInt32(maxSpeed));
+                minSpeed*=speedRate;
+                maxSpeed*=speedRate*speedRateRate;
+                bird.velocity = new Vector3(direction.x*speed/100f, direction.y*speed/100f);
+                bird.gameObject.transform.position = transform.position;
+            }
+            time--;
         }
-        time--;
     }
 
     /*public void TimeStep(){
