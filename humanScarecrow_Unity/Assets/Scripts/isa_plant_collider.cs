@@ -10,7 +10,7 @@ public class isa_plant_collider : MonoBehaviour
     // Start is called before the first frame update\
     public bool full = false;
     public Transform plant;
-
+    public PauseMenu pauseMenuUI;
     float horizontalInput;
     float verticalInput;
 
@@ -41,7 +41,7 @@ public class isa_plant_collider : MonoBehaviour
 
     void OnMouseOver() {
 
-        if (Input.GetMouseButtonDown(1)) {
+        if (Input.GetMouseButtonDown(1) && !pauseMenuUI.GameIsPaused) {
             Debug.Log("get here");
             if (plant == null) {
                 plant_script.clonePlant(transform);
@@ -54,7 +54,8 @@ public class isa_plant_collider : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        
+        if (Input.GetMouseButtonDown(0) && !pauseMenuUI.GameIsPaused) {
             Debug.Log("Clicked on object!");
             Debug.Log("hello:" + player);
             player.position = new Vector3(transform.position.x, transform.position.y+0.5f);

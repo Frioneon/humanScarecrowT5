@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Quitter : MonoBehaviour
 {
@@ -19,8 +20,7 @@ public class Quitter : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "Bird") {
-            Application.Quit();
-            Debug.Log("gotem");
+            SceneManager.LoadScene("Menu");
         }
     }
 }

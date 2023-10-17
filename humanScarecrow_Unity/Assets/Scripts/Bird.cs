@@ -12,7 +12,7 @@ public class Bird : MonoBehaviour
     bool scared = false;
     public AudioClip caw;
     public AudioClip laugh;
-    public GameObject pauseMenuUI;
+    public PauseMenu pauseMenuUI;
     AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Bird : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pauseMenuUI.activeInHierarchy == false) {
+        if (!pauseMenuUI.GameIsPaused) {
             if (( transform.position.x >  20 ) || ( transform.position.x < -20 ) || ( transform.position.y >  20 ) || ( transform.position.y < -20 ))
             {
                 Destroy(this.gameObject);
@@ -48,7 +48,7 @@ public class Bird : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (pauseMenuUI.activeInHierarchy == false) {
+        if (!pauseMenuUI.GameIsPaused) {
             if (col.tag == "Scarecrow") {
                 float random = UnityEngine.Random.Range(0f, 260f);
                 velocity = new Vector3(0.03f*Mathf.Cos(random), 0.03f*Mathf.Sin(random));
@@ -60,7 +60,7 @@ public class Bird : MonoBehaviour
 
     void Render()
     {
-        if (pauseMenuUI.activeInHierarchy == false) {
+        if (!pauseMenuUI.GameIsPaused) {
             if (Math.Abs(velocity.x)<=velocity.y){
                 if (flap){
                     spriteRenderer.sprite = spriteArray[0]; 

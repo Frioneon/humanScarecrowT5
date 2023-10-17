@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     public float waitRate;
     public float speedRateRate;
     public float waitRateRate;
-    public GameObject pauseMenuUI;
+    public PauseMenu pauseMenuUI;
     public Vector3 direction;
     System.Random random = new System.Random();
     public int time = 0;
@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pauseMenuUI.activeInHierarchy == false) {
+        if (!pauseMenuUI.GameIsPaused) {
             if (time <= 0) {
                 minWait*=waitRate*waitRateRate;
                 maxWait*=waitRate;
@@ -43,6 +43,7 @@ public class Spawner : MonoBehaviour
                 maxSpeed*=speedRate*speedRateRate;
                 bird.velocity = new Vector3(direction.x*speed/100f, direction.y*speed/100f);
                 bird.gameObject.transform.position = transform.position;
+                bird.pauseMenuUI = pauseMenuUI;
             }
             time--;
         }
