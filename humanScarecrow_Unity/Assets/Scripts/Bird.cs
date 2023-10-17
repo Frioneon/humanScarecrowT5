@@ -36,7 +36,7 @@ public class Bird : MonoBehaviour
             }
             if (scared)
             {
-                transform.localScale *= 1.006f;
+                transform.localScale *= 1.002f;
                 flap = !flap;
             }
             Render();

@@ -8,6 +8,8 @@ public class isa_plant_collider : MonoBehaviour
     public plant plant_script;
     //public Transform collider;
     // Start is called before the first frame update\
+    public bool full = false;
+    public Transform plant;
 
     float horizontalInput;
     float verticalInput;
@@ -24,6 +26,11 @@ public class isa_plant_collider : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+        if (full) {
+            GetComponentInChildren<SpriteRenderer>().color = new Color(0.1f,0.8f,0.2f,0.3f);
+        } else {
+            GetComponentInChildren<SpriteRenderer>().color = new Color(0.3f,0.2f,0f,0.3f);
+        }
 
         // if (Input.GetMouseButtonDown(1)) {
         //     Debug.Log("get here");
@@ -36,13 +43,21 @@ public class isa_plant_collider : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1)) {
             Debug.Log("get here");
-            plant_script.clonePlant(transform);
+            if (plant == null) {
+                plant_script.clonePlant(transform);
+            }
+            else if (full) {
+                plant.gameObject.GetComponent<plant>().plant_stage = -1;
+                player.gameObject.GetComponent<PlayerMove>().score++;
+                GetComponentInChildren<SpriteRenderer>().color = new Color(0.3f,0.2f,0f,0.3f);
+                full = false;
+            }
         }
 
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("Clicked on object!");
             Debug.Log("hello:" + player);
-            player.position = transform.position;
+            player.position = new Vector3(transform.position.x, transform.position.y+0.5f);
         }
         
         // if (Input.GetMouseButtonDown(1)) {

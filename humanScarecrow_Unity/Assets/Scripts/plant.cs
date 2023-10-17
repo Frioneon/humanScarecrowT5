@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class plant : MonoBehaviour
 {   
-    int plant_stage = 0;
+    public int plant_stage = 0;
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteList;
     public int healCoolMax = 4;
-    int healCool = 4;
     public Transform parent;
+    public Transform location;
 
     Vector3 mousePos;
     
@@ -18,6 +18,7 @@ public class plant : MonoBehaviour
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = spriteList[plant_stage];
+        plant_stage = 0;
         InvokeRepeating("PlantGrow", 2.0f, 2.0f);
     }
 
@@ -56,6 +57,8 @@ public class plant : MonoBehaviour
 
         Transform plant_pos = new_plant.transform;
         plant_pos.position = new_t.position;
+        new_plant.location = new_t;
+        new_t.gameObject.GetComponent<isa_plant_collider>().plant = new_plant.transform;
 
     }
 
@@ -63,6 +66,8 @@ public class plant : MonoBehaviour
         if (plant_stage < 2) {
             plant_stage++;
             spriteRenderer.sprite = spriteList[plant_stage];
+        } else {
+            location.gameObject.GetComponent<isa_plant_collider>().full = true;
         }
     }
 
@@ -79,6 +84,7 @@ public class plant : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision) {
         if (collision.tag == "Bird") {
             plant_stage--;
+            location.gameObject.GetComponent<isa_plant_collider>().full = false;
         }
     }
 

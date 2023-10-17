@@ -13,6 +13,7 @@
         public int coolMax = 50;
         int cool = 0;
         int spriteDex;
+        public int score = 0;
 
         void Start () {
             spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
