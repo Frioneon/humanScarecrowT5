@@ -13,7 +13,6 @@ public class Bird : MonoBehaviour
     public AudioClip caw;
     public AudioClip laugh;
     AudioSource audioSource;
-    
 
     // Start is called before the first frame update
     void Start()

@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
 
     void Pause() {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         GameIsPaused = true;
     }
 
@@ -44,6 +44,6 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("Level1_building");
+        SceneManager.LoadScene("work_Isabella");
     }
 }
