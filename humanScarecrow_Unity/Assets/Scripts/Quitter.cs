@@ -18,8 +18,9 @@ public class Quitter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Untagged") {
+        if (col.tag == "Bird") {
             Application.Quit();
+            Debug.Log("gotem");
         }
     }
 }

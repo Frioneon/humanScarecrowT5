@@ -57,6 +57,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 901a5130e09f5d0429dadfcad50b8719, type: 3}
   - {fileID: 21300000, guid: 19d42119a8c6eb74e98a397d8102913f, type: 3}
   coolMax: 50
+  score: 0
+  t: {fileID: 0}
 --- !u!61 &3675004210160970005
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89,7 +91,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -2}
+  m_Offset: {x: 0, y: -7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -100,7 +102,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 14}
   m_EdgeRadius: 0
 --- !u!212 &8684040553950254270
 SpriteRenderer:

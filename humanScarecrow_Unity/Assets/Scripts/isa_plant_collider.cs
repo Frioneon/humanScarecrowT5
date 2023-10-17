@@ -48,7 +48,7 @@ public class isa_plant_collider : MonoBehaviour
             }
             else if (full) {
                 plant.gameObject.GetComponent<plant>().plant_stage = -1;
-                player.gameObject.GetComponent<PlayerMove>().score++;
+                player.gameObject.GetComponent<PlayerMove>().score += 1;
                 GetComponentInChildren<SpriteRenderer>().color = new Color(0.3f,0.2f,0f,0.3f);
                 full = false;
             }

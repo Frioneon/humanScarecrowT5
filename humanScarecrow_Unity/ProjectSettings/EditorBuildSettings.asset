@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/work_Isabella.unity
-    guid: 186fbe57b5172422da2c23ced654094b
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2d4b55dea641a4c89b37a605865eb6f6
+  - enabled: 1
+    path: Assets/Scenes/work_Isabella.unity
+    guid: 186fbe57b5172422da2c23ced654094b
   m_configObjects: {}
