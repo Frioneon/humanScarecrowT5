@@ -182,8 +182,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f0f7cea0165a17449a56a6a3e462ffe7, type: 3}
   - {fileID: 21300000, guid: 3a57ab33581ef994c8998886f454da54, type: 3}
   - {fileID: 21300000, guid: d5318ccfa0a0eab47a8bbd4236bf4764, type: 3}
-  caw: {fileID: 8300000, guid: b428b6c60e2f75a4bbcb507de2545ebc, type: 3}
-  laugh: {fileID: 8300000, guid: 315ce4f0951599441943d340a07c124c, type: 3}
+  caw: {fileID: 8300000, guid: 740dccd19b67766448f7023f5442e48a, type: 3}
+  laugh: {fileID: 8300000, guid: 740dccd19b67766448f7023f5442e48a, type: 3}
   pauseMenuUI: {fileID: 6031254804333681086, guid: 01f5a35732bb74dab9ac177ce8842309, type: 3}
 --- !u!82 &4977103315432870935
 AudioSource:

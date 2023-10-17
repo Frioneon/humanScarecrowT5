@@ -23,22 +23,22 @@
         void Update() {
             if (Input.GetKey("up")||Input.GetKey("w")) {
                 spriteDex = 3;
-                GetComponent<BoxCollider2D>().size = new Vector2(1f, 14f);
+                GetComponent<BoxCollider2D>().size = new Vector2(0.01f, 14f);
                 GetComponent<BoxCollider2D>().offset = new Vector2(0f, 7f);
             }
             if (Input.GetKey("down")||Input.GetKey("s")) {
                 spriteDex = 0;
-                GetComponent<BoxCollider2D>().size = new Vector2(1f, 14f);
+                GetComponent<BoxCollider2D>().size = new Vector2(0.01f, 14f);
                 GetComponent<BoxCollider2D>().offset = new Vector2(0f, -7f);
             }
             if (Input.GetKey("right")||Input.GetKey("d")) {
                 spriteDex = 2;
-                GetComponent<BoxCollider2D>().size = new Vector2(14f, 1f);
+                GetComponent<BoxCollider2D>().size = new Vector2(14f, 0.01f);
                 GetComponent<BoxCollider2D>().offset = new Vector2(7f, 0f);
             }
             if (Input.GetKey("left")||Input.GetKey("a")) {
                 spriteDex = 1;
-                GetComponent<BoxCollider2D>().size = new Vector2(14f, 1f);
+                GetComponent<BoxCollider2D>().size = new Vector2(14f, 0.01f);
                 GetComponent<BoxCollider2D>().offset = new Vector2(-7f, 0f);
             }
             if (cool == 0) {

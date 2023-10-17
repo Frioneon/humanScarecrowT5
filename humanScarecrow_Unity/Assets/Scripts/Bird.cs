@@ -38,6 +38,7 @@ public class Bird : MonoBehaviour
             {
                 transform.localScale *= 1.002f;
                 flap = !flap;
+                this.GetComponent<Collider2D>().enabled = false;
             }
             Render();
             transform.position += velocity;
